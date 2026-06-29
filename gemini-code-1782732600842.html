@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chuyên Đề Trắc Nghiệm Ngữ Pháp Nâng Cao (51 - 100) - Ms Lê Hằng English</title>
+    <!-- Nhúng Google Fonts phong cách ứng dụng học tập hiện đại -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&family=Quicksand:wght@500;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-gradient: linear-gradient(135deg, #74B9FF, #A8E6CF, #FFD3B6, #FFAAA5, #D4A5A5);
+            --correct-color: #00D26A;
+            --wrong-color: #FF4757;
+            --text-main: #2D3436;
+            --card-bg: rgba(255, 255, 255, 0.96);
+            --purple-accent: #8854C0;
+        }
+
+        body {
+            font-family: 'Quicksand', 'Nunito', sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            color: var(--text-main);
+            background: var(--primary-gradient);
+            background-size: 400% 400%;
+            animation: loangMauNenChuyenDong 25s ease infinite;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        @keyframes loangMauNenChuyenDong {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .pattern-overlay-layer {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1;
+            pointer-events: none;
+            opacity: 0.15;
+            mix-blend-mode: overlay;
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'><g fill='%23FFFFFF'><path d='M20,20 L26,32 L38,34 L29,42 L32,54 L20,47 L8,54 L11,42 L2,34 L14,32 Z'/><circle cx='120' cy='40' r='10'/><path d='M40,110 C40,98 60,92 80,104 C100,92 120,98 120,110 C120,122 40,122 40,110 Z' opacity='0.6'/><path d='M130,120 Q142,102 154,120 T166,120' stroke='%23FFFFFF' stroke-width='3' fill='none'/></g></svg>");
+            animation: movingBackgroundPattern 40s linear infinite;
+        }
+
+        @keyframes movingBackgroundPattern {
+            from { background-position: 0 0; }
+            to { background-position: 320px 640px; }
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        header {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 8px 24px;
+            border-radius: 14px;
+            box-shadow: 0 4px 0 rgba(0, 0, 0, 0.05);
+            margin-bottom: 20px;
+            border: 2px solid var(--purple-accent);
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+            position: relative;
+        }
+
+        header h1 {
+            font-size: 1rem;
+            color: var(--purple-accent);
+            margin: 0;
+            font-weight: 900;
+        }
+
+        .important-notice-box {
+            background: #FFF9E6;
+            border: 4px dashed #FDCB6E;
+            border-radius: 20px;
+            padding: 18px;
+            margin-bottom: 25px;
+            box-shadow: 0 8px 0 rgba(253, 203, 110, 0.2);
+            text-align: center;
+        }
+
+        .notice-title {
+            font-size: 1.15rem;
+            font-weight: 900;
+            color: #D35400;
+            margin-bottom: 6px;
+            display: block;
+        }
+
+        .notice-content {
+            font-size: 1rem;
+            line-height: 1.5;
+            color: #2D3436;
+            font-weight: 700;
+        }
+
+        .quiz-card {
+            background: var(--card-bg);
+            border-radius: 24px;
+            padding: 25px;
+            margin-bottom: 22px;
+            box-shadow: 0 10px 0 rgba(0, 0, 0, 0.05);
+            border: 3px solid #FFF;
+            position: relative;
+        }
+
+        .question-header {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 14px;
+        }
+
+        .question-number {
+            background: var(--purple-accent);
+            color: #FFF;
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            margin-right: 12px;
+            font-size: 0.95rem;
+            box-shadow: 0 4px 0 #6c3da3;
+            flex-shrink: 0;
+        }
+
+        .question-text {
+            font-size: 1.1rem;
+            font-weight: 700;
+            line-height: 1.6;
+            color: var(--text-main);
+            margin-top: 2px;
+        }
+
+        .choices-grid {
+            display: flex;
+            flex-direction: column;
+            margin-top: 15px;
+        }
+
+        .choice-btn {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            background: #FFF;
+            border: 3px solid #E2E8F0;
+            border-radius: 18px;
+            padding: 12px 18px;
+            margin-bottom: 10px;
+            font-size: 1rem;
+            font-weight: 700;
+            text-align: left;
+            cursor: pointer;
+            font-family: inherit;
+            color: var(--text-main);
+            box-shadow: 0 6px 0 #E2E8F0;
+            transition: all 0.1s ease;
+        }
+
+        .choice-btn:hover:not(:disabled) {
+            transform: scale(1.01) translateY(-2px);
+            border-color: #B2BEC3;
+            box-shadow: 0 8px 0 #B2BEC3;
+        }
+
+        .choice-btn:active:not(:disabled) {
+            transform: translateY(2px);
+            box-shadow: 0 2px 0 #B2BEC3;
+        }
+
+        .choice-prefix {
+            background: #F1F5F9;
+            border-radius: 10px;
+            width: 28px;
+            height: 28px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            margin-right: 12px;
+            color: #64748B;
+            flex-shrink: 0;
+        }
+
+        .choice-btn.correct-state {
+            background-color: #E6FBF1 !important;
+            border-color: var(--correct-color) !important;
+            box-shadow: 0 6px 0 #00A955 !important;
+            color: #006633 !important;
+        }
+
+        .choice-btn.correct-state .choice-prefix {
+            background-color: var(--correct-color) !important;
+            color: white !important;
+        }
+
+        .choice-btn.wrong-state {
+            background-color: #FFEBEB !important;
+            border-color: var(--wrong-color) !important;
+            box-shadow: 0 6px 0 #D63031 !important;
+            color: #99222A !important;
+        }
+
+        .choice-btn.wrong-state .choice-prefix {
+            background-color: var(--wrong-color) !important;
+            color: white !important;
+        }
+
+        .shake-animation {
+            animation: shakeEffect 0.4s ease-in-out;
+        }
+
+        @keyframes shakeEffect {
+            0%, 100% { transform: translateX(0); }
+            20%, 60% { transform: translateX(-6px); }
+            40%, 80% { transform: translateX(6px); }
+        }
+
+        .explanation-box {
+            margin-top: 18px;
+            background: #F8F9FA;
+            border-radius: 18px;
+            padding: 18px;
+            border-left: 6px solid var(--purple-accent);
+            display: none;
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.04);
+        }
+
+        .explanation-title {
+            font-weight: 900;
+            color: var(--purple-accent);
+            font-size: 1.05rem;
+            margin-bottom: 10px;
+        }
+
+        .explanation-step {
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: #4A5568;
+        }
+
+        .step-heading {
+            font-weight: 900;
+            color: #2D3748;
+            margin-bottom: 2px;
+        }
+
+        .footer-action-wrapper {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .submit-exam-btn {
+            background: #00D26A;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            padding: 16px 60px;
+            font-size: 1.3rem;
+            font-weight: 900;
+            cursor: pointer;
+            box-shadow: 0 8px 0 #00A955, 0 12px 25px rgba(0,0,0,0.12);
+            font-family: inherit;
+            transition: all 0.15s;
+        }
+
+        .submit-exam-btn:hover {
+            transform: translateY(-3px) scale(1.01);
+            box-shadow: 0 11px 0 #00A955, 0 15px 30px rgba(0,0,0,0.18);
+        }
+
+        .submit-exam-btn:active {
+            transform: translateY(4px);
+            box-shadow: 0 4px 0 #00A955;
+        }
+
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.55);
+            backdrop-filter: blur(4px);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            visibility: hidden;
+            opacity: 0;
+            transition: all 0.25s ease;
+        }
+
+        .modal-overlay.active {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .modal-body-card {
+            background: white;
+            border-radius: 28px;
+            max-width: 500px;
+            width: 90%;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            border: 4px solid var(--purple-accent);
+            transform: scale(0.8);
+            transition: all 0.25s ease;
+        }
+
+        .modal-overlay.active .modal-body-card {
+            transform: scale(1);
+        }
+
+        .modal-header-title {
+            font-size: 1.4rem;
+            font-weight: 900;
+            color: var(--purple-accent);
+            margin-bottom: 10px;
+        }
+
+        .modal-score-badge {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: #00D26A;
+            margin: 15px 0;
+        }
+
+        .modal-comment-text {
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: #2D3436;
+            font-weight: 700;
+            margin-bottom: 25px;
+        }
+
+        .modal-reload-btn {
+            background: var(--purple-accent);
+            color: white;
+            border: none;
+            border-radius: 18px;
+            padding: 12px 40px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 5px 0 #6c3da3;
+        }
+
+        #canvas-confetti-layer {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 999;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="pattern-overlay-layer"></div>
+    <canvas id="canvas-confetti-layer"></canvas>
+
+    <div class="container">
+        <header>
+            <h1>Giáo viên tạo: Ms Lê Hằng English</h1>
+        </header>
+
+        <div class="important-notice-box">
+            <span class="notice-title">⚠️ LỜI NHẮC QUAN TRỌNG CỦA CÔ LÊ HẰNG ⚠️</span>
+            <span class="notice-content">
+                Hệ thống đã cập nhật trọn vẹn danh sách bài tập từ câu 51 đến câu 100.<br>
+                Hãy rèn luyện phản xạ chọn đáp án nhanh và xem kỹ đáp án giải thích chi tiết phía dưới nhé!
+            </span>
+        </div>
+
+        <div id="quiz-dynamic-render-target"></div>
+
+        <div class="footer-action-wrapper">
+            <button class="submit-exam-btn" onclick="processExamGrading()">🎉 NỘP BÀI KIỂM TRA 🎉</button>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="result-summary-popup">
+        <div class="modal-body-card">
+            <div class="modal-header-title">🏆 KẾT QUẢ ĐẠT ĐƯỢC 🏆</div>
+            <div class="modal-score-badge" id="score-counter-slot">0/0</div>
+            <div class="modal-comment-text" id="teacher-feedback-slot">Lời khuyên...</div>
+            <button class="modal-reload-btn" onclick="resetAndRestartQuiz()">THỬ SỨC LẠI</button>
+        </div>
+    </div>
+
+    <script>
+        const questionsDatabase = [
+            {
+                id: 51, text: "The cat was ______ to wait for the mouse to come out of its hole.",
+                choices: [{text:"patient enough",key:"A"}, {text:"so patient",key:"B"}, {text:"enough patient",key:"C"}, {text:"too patient",key:"D"}], correct: "A",
+                exp: ["Chú mèo đã đủ kiên nhẫn để chờ đợi chú chuột bò ra ngoài khỏi cái hang.", "Cấu trúc chỉ mức độ đủ để thực hiện hành động: 'Adj/Adv + enough + to-V'.", "Đúng trật tự vì tính từ 'patient' bắt buộc đứng trước 'enough'.", "Các phương án khác sai vị trí hoặc làm biến đổi sai nghĩa ngữ cảnh."]
+            },
+            {
+                id: 52, text: "I can't find my purse anywhere; I must ______ it at the cinema.",
+                choices: [{text:"leave",key:"A"}, {text:"have left",key:"B"}, {text:"be leaving",key:"C"}, {text:"have been leaving",key:"D"}], correct: "B",
+                exp: ["Tớ không tìm thấy ví tiền ở đâu cả; chắc chắn là tớ đã bỏ quên nó ở rạp chiếu phim rồi.", "Cấu trúc đưa ra suy đoán chắc chắn gần như 100% về một sự việc trong quá khứ.", "Công thức chuẩn: 'must + have + V3/ed' chỉ một suy luận có cơ sở thực tế ở quá khứ.", "Các phương án khác chỉ hành động ở hiện tại hoặc tiếp diễn không hợp logic."]
+            },
+            {
+                id: 53, text: "______ of the workers has his own work.",
+                choices: [{text:"Every",key:"A"}, {text:"Each",key:"B"}, {text:"Other",key:"C"}, {text:"All",key:"D"}], correct: "B",
+                exp: ["Mỗi người trong số các công nhân đều có công việc riêng của chính mình.", "Phân biệt đại từ chỉ định số ít kết hợp giới từ: 'Each of + Danh từ số nhiều + Động từ số ít'.", "Từ 'has' và 'his' chứng minh chủ ngữ phải đại diện cho thực thể số ít là 'Each'.", "'Every' không đi trực tiếp với giới từ 'of' (phải dùng Every one of); 'All' đi với động từ số nhiều."]
+            },
+            {
+                id: 54, text: "The numbers add ______ to 70.",
+                choices: [{text:"off",key:"A"}, {text:"up",key:"B"}, {text:"in",key:"C"}, {text:"out",key:"D"}], correct: "B",
+                exp: ["Các con số này cộng lại tạo thành tổng bằng 70.", "Cụm động từ toán học chỉ tổng số lượng tích lũy.", "Phrasal Verb: 'add up to + số lượng' nghĩa là tổng cộng lại thành bao nhiêu.", "Các giới từ còn lại không tạo thành cụm từ có nghĩa phù hợp."]
+            },
+            {
+                id: 55, text: "The equipment in our office needs ______ .",
+                choices: [{text:"moderner",key:"A"}, {text:"modernizing",key:"B"}, {text:"modernized",key:"C"}, {text:"modernization",key:"D"}], correct: "B",
+                exp: ["Các trang thiết bị trong văn phòng của chúng ta cần được hiện đại hóa.", "Cấu trúc bị động đặc biệt với động từ need: 'S (vật) + need + V-ing' mang nghĩa là cần được làm gì.", "Danh động từ 'modernizing' thể hiện hành động trang thiết bị cần được cải tiến.", "Dùng danh từ 'modernization' hoặc tính từ so sánh là sai cấu trúc sau need."]
+            },
+            {
+                id: 56, text: "He felt ______ when he failed the exams the second time.",
+                choices: [{text:"discouraged",key:"A"}, {text:"annoyed",key:"B"}, {text:"undecided",key:"C"}, {text:"determined",key:"D"}], correct: "A",
+                exp: ["Anh ấy cảm thấy nản lòng, mất đi ý chí khi trượt kỳ thi lần thứ hai.", "Lựa chọn từ vựng phù hợp với tâm trạng hụt hẫng sau thất bại.", "'discouraged' mang ý nghĩa nản lòng, mất hết động lực quyết tâm.", "'determined' mang nghĩa quyết tâm, trái ngược hoàn toàn ngữ cảnh tâm lý."]
+            },
+            {
+                id: 57, text: "I have bought a present for my mother, and now I need some ______ .",
+                choices: [{text:"paper wrapper",key:"A"}, {text:"wrap paper",key:"B"}, {text:"wrapped paper",key:"C"}, {text:"wrapping paper",key:"D"}], correct: "D",
+                exp: ["Tớ vừa mua một món quà cho mẹ, và bây giờ tớ cần một ít giấy gói quà.", "Cụm danh từ ghép chỉ công dụng chức năng vật dụng đời sống.", "Cụm từ cố định bất biến: 'wrapping paper' (giấy chuyên dụng dùng để gói quà).", "Các cách sắp xếp trật tự từ khác hoàn toàn không tự nhiên và sai ngữ pháp."]
+            },
+            {
+                id: 58, text: "Computer is one of the most important ______ of the 20th century.",
+                choices: [{text:"inventings",key:"A"}, {text:"inventories",key:"B"}, {text:"inventions",key:"C"}, {text:"inventors",key:"D"}], correct: "C",
+                exp: ["Máy tính là một trong những phát minh quan trọng nhất của thế kỷ 20.", "Cấu trúc số nhiều đứng sau cụm chọn lọc: 'one of the + most + Adj + Danh từ số nhiều'.", "Danh từ 'inventions' chỉ các phát minh, công trình khoa học sáng tạo.", "'inventors' là nhà sáng chế người; 'inventories' là danh mục hàng tồn kho."]
+            },
+            {
+                id: 59, text: "If they are not careful with their accounts, their business will go ______ .",
+                choices: [{text:"poor",key:"A"}, {text:"bankrupt",key:"B"}, {text:"penniless",key:"C"}, {text:"broken",key:"D"}], correct: "B",
+                exp: ["Nếu họ không cẩn thận với sổ sách kế toán của mình, doanh nghiệp của họ sẽ bị phá sản.", "Cụm thành ngữ kinh tế chỉ thực trạng sụp đổ tài chính doanh nghiệp.", "Cụm từ kết hợp cố định: 'go bankrupt' (rơi vào tình trạng phá sản hoàn toàn).", "Các tính từ nghèo đói khác không đi kèm với động từ liên kết 'go' tạo thành nghĩa này."]
+            },
+            {
+                id: 60, text: "It was really kind ______ you to help those poor people.",
+                choices: [{text:"by",key:"A"}, {text:"of",key:"B"}, {text:"at",key:"C"}, {text:"to",key:"D"}], correct: "B",
+                exp: ["Bạn thật sự rất tốt bụng khi đã ra tay giúp đỡ những người nghèo khổ đó.", "Cấu trúc khen ngợi phẩm chất, đức tính tốt đẹp của một cá nhân.", "Công thức cố định: 'It + be + Adj (chỉ tính cách) + of + somebody + to-V'.", "Sử dụng các giới từ khác như 'to' hoặc 'by' là sai bản chất công thức."]
+            },
+            {
+                id: 61, text: "Do you know ______ ?",
+                choices: [{text:"what wrong was it with",key:"A"}, {text:"what's wrong with it",key:"B"}, {text:"what wrong was with it",key:"C"}, {text:"what wrong is it with",key:"D"}], correct: "B",
+                exp: ["Cậu có biết có chuyện gì đang xảy ra / bị hỏng hóc với nó không?", "Mệnh đề danh ngữ đóng vai trò tân ngữ đứng sau động từ know.", "Cấu trúc chuẩn văn phong: 'what is wrong with something' (có vấn đề gì với cái gì).", "Vì 'what' đóng vai trò làm chủ ngữ luôn trong mệnh đề phụ nên không mượn chủ ngữ giả 'it' chèn giữa."]
+            },
+            {
+                id: 62, text: "If you had taken my advice, you ______ in such difficulties.",
+                choices: [{text:"won't be",key:"A"}, {text:"hadn't been",key:"B"}, {text:"wouldn't be",key:"C"}, {text:"wouldn't have been",key:"D"}], correct: "C",
+                exp: ["Nếu hành động nghe lời khuyên diễn ra trong quá khứ, hiện tại bạn đã không gặp khó khăn thế này.", "Cấu trúc câu điều kiện trộn hỗn hợp (Mixed Conditional): Giả định quá khứ dẫn đến kết quả hiện tại.", "Mệnh đề chính bộc lộ kết quả hiện tại chia theo hình thái loại 2: 'S + wouldn't + V-bare'.", "Chọn 'wouldn't have been' là sai vì biến nó thành loại 3 thuần túy không hợp ngữ cảnh hệ quả hiện tại."]
+            },
+            {
+                id: 63, text: "Hair color is one of ______ characteristics to be used in identifying people.",
+                choices: [{text:"the most obviously",key:"A"}, {text:"most obvious",key:"B"}, {text:"obviously the most",key:"C"}, {text:"the most obvious",key:"D"}], correct: "D",
+                exp: ["Màu tóc là một trong những đặc điểm rõ ràng nhất được sử dụng để nhận dạng con người.", "Cấu trúc so sánh nhất bổ nghĩa cho danh từ số nhiều đứng sau.", "Công thức so sánh nhất tính từ dài: 'the most + Adjective + Noun'. Tính từ ở đây là 'obvious'.", "Dùng trạng từ đuôi '-ly' bổ nghĩa trực tiếp cho danh từ là sai ngữ pháp."]
+            },
+            {
+                id: 64, text: "I would appreciate it ______ what I have told you a secret.",
+                choices: [{text:"you can keep",key:"A"}, {text:"that you kept",key:"B"}, {text:"you will keep",key:"C"}, {text:"if you kept",key:"D"}], correct: "D",
+                exp: ["Tôi sẽ vô cùng trân trọng nếu bạn giữ bí mật những gì tôi đã nói với bạn.", "Cấu trúc thể hiện lời yêu cầu lịch sự, nhã nhặn mang tính giả định loại 2.", "Công thức cố định: 'I would appreciate it if + S + V2/ed'. Do đó động từ chia 'kept'.", "Thiếu liên từ điều kiện 'if' làm câu trở nên vô nghĩa."]
+            },
+            {
+                id: 65, text: "My cat would not have bitten the toy fish ______ it was made of rubber.",
+                choices: [{text:"if she has known",key:"A"}, {text:"if she should know",key:"B"}, {text:"had she known",key:"C"}, {text:"if she knew",key:"D"}], correct: "C",
+                exp: ["Chú mèo của tôi đã không cắn con cá đồ chơi nếu nó biết con cá đó làm bằng cao su.", "Cấu trúc đảo ngữ của câu điều kiện loại 3 (giả định trái ngược quá khứ).", "Công thức đảo ngữ mệnh đề If loại 3: 'Had + S + V3/ed' thay thế hoàn toàn cho 'If S had V3/ed'.", "Các phương án khác chia sai loại điều kiện quy ước."]
+            },
+            {
+                id: 66, text: "I wish I hadn’t said it. If only I could ______ .",
+                choices: [{text:"turn the clock round",key:"A"}, {text:"turn the clock down",key:"B"}, {text:"turn the clock back",key:"C"}, {text:"turn the clock forward",key:"D"}], correct: "C",
+                exp: ["Tôi ước gì mình đã không nói ra điều đó. Giá như tôi có thể quay ngược được thời gian.", "Thành ngữ tiếng Anh chỉ mong ước thay đổi quyết định quá khứ.", "Idiom chuẩn xác: 'turn the clock back' (quay ngược kim đồng hồ / quay ngược thời gian).", "Các động từ hướng đi khác không nằm trong kho tàng thành ngữ mang nghĩa này."]
+            },
+            {
+                id: 67, text: "______ , the results couldn't be better.",
+                choices: [{text:"No matter what he tried hard",key:"A"}, {text:"No matter how hard he tried",key:"B"}, {text:"Although very hard he tried",key:"C"}, {text:"Despite how hard he tried",key:"D"}], correct: "B",
+                exp: ["Dù anh ấy có cố gắng chăm chỉ đến mức nào đi chăng nữa, kết quả cũng không thể tốt hơn.", "Cấu trúc mệnh đề nhượng bộ nhấn mạnh mức độ của trạng từ/tính từ.", "Công thức chuẩn mực: 'No matter how + Adj/Adv + S + V'. Trạng từ 'hard' đứng ngay sau how.", "Sắp xếp trạng từ đứng sau chủ ngữ trong cấu trúc No matter là sai."]
+            },
+            {
+                id: 68, text: "He gave me his personal ______ that his draft would be ready by Friday.",
+                choices: [{text:"endurance",key:"A"}, {text:"insurance",key:"B"}, {text:"assurance",key:"C"}, {text:"ensurance",key:"D"}], correct: "C",
+                exp: ["Anh ấy đã đưa ra lời cam đoan cá nhân rằng bản thảo sẽ sẵn sàng trước thứ Sáu.", "Lựa chọn danh từ thích hợp mang ý nghĩa lời hứa chắc chắn.", "'assurance' có nghĩa là sự cam đoan, bảo đảm bằng danh dự.", "'insurance' có nghĩa là bảo hiểm tài chính; 'endurance' có nghĩa là sức chịu đựng bền bỉ."]
+            },
+            {
+                id: 69, text: "They will stay there for some days if the weather ______ fine.",
+                choices: [{text:"would be",key:"A"}, {text:"was",key:"B"}, {text:"is",key:"C"}, {text:"will be",key:"D"}], correct: "C",
+                exp: ["Họ sẽ ở lại đó thêm vài ngày nếu thời tiết thuận lợi, tốt đẹp.", "Cấu trúc câu điều kiện loại 1 diễn tả sự việc hoàn toàn có thể xảy ra ở hiện tại/tương lai.", "Quy tắc: Mệnh đề chứa If chia thì Hiện tại đơn ('is' đi với chủ ngữ số ít the weather).", "Tuyệt đối không dùng trợ động từ tương lai 'will' nằm bên trong mệnh đề If."]
+            },
+            {
+                id: 70, text: "Many people like the slow ______ of life in the countryside.",
+                choices: [{text:"step",key:"A"}, {text:"pace",key:"B"}, {text:"speed",key:"C"}, {text:"space",key:"D"}], correct: "B",
+                exp: ["Nhiều người vô cùng yêu thích nhịp sống chậm rãi, bình yên ở vùng nông thôn.", "Cụm từ kết hợp mang tính biểu tượng đời sống xã hội.", "Cụm danh từ cố định: 'pace of life' (nhịp sống, tốc độ sống sinh hoạt).", "'speed' dùng cho tốc độ vật lý máy móc; 'step' là bước chân không hợp nghĩa."]
+            },
+            {
+                id: 71, text: "Why don’t you ask the man where ______ to stay?",
+                choices: [{text:"he would rather",key:"A"}, {text:"would he like",key:"B"}, {text:"he would like",key:"C"}, {text:"he feels like",key:"D"}], correct: "C",
+                exp: ["Tại sao bạn không hỏi người đàn ông đó xem anh ấy muốn ở lại nơi nào?", "Mệnh đề danh ngữ đứng sau từ để hỏi 'where' phải tuân theo trật tự câu khẳng định (Chủ ngữ + Động từ).", "Đồng thời cấu trúc đi với động từ nguyên mẫu có to 'to stay' là 'would like + to-V'.", "'would rather' đi với động từ nguyên thể không to; Đảo 'would he' lên trước là sai trật tự mệnh đề phụ."]
+            },
+            {
+                id: 72, text: "She nearly lost her own life ______ attempting to save the child from drowning.",
+                choices: [{text:"at",key:"A"}, {text:"for",key:"B"}, {text:"in",key:"C"}, {text:"with",key:"D"}], correct: "C",
+                exp: ["Cô ấy suýt chút nữa đã đánh mất mạng sống của chính mình trong nỗ lực cứu đứa trẻ khỏi chết đuối.", "Giới từ đi kèm diễn tả quá trình tham gia một hành động mạo hiểm.", "Cấu trúc quy ước: 'lose one's life in doing something' (hy sinh mạng sống trong khi làm việc gì).", "Các giới từ khác không tạo ra sự kết nối hợp lý về mặt ngữ pháp văn phong."]
+            },
+            {
+                id: 73, text: "I just took it ______ that he’d always be available.",
+                choices: [{text:"into account",key:"A"}, {text:"for granted",key:"B"}, {text:"into consideration",key:"C"}, {text:"easy",key:"D"}], correct: "B",
+                exp: ["Tớ cứ mặc định coi đó là điều hiển nhiên rằng anh ấy luôn luôn rảnh rỗi sẵn sàng.", "Thành ngữ chỉ tâm lý xem nhẹ, coi mọi sự giúp đỡ là nghĩa vụ hiển nhiên.", "Cụm từ cố định bất biến: 'take it for granted that + clause' (coi điều gì là hiển nhiên).", "'take into account' bắt buộc phải có danh từ đứng giữa chứ không dùng cấu trúc chủ ngữ giả 'it' đi liền."]
+            },
+            {
+                id: 74, text: "My car is getting unreliable; I think I'll trade it ______ for a new one.",
+                choices: [{text:"in",key:"A"}, {text:"off",key:"B"}, {text:"up",key:"C"}, {text:"away",key:"D"}], correct: "A",
+                exp: ["Chiếc xe của tớ bắt đầu tậm tịt không đáng tin rồi; tớ nghĩ tớ sẽ đổi nó để các thêm tiền lấy xe mới.", "Cụm động từ thương mại kinh tế mua bán trao đổi đồ dùng cũ.", "Phrasal Verb: 'trade in something for something' (đổi các đồ cũ lấy đồ mới).", "Các giới từ khác mang ý nghĩa đánh đổi, thỏa hiệp nhân nhượng."]
+            },
+            {
+                id: 75, text: "Anne persisted ______ her search for the truth about what had happened.",
+                choices: [{text:"on",key:"A"}, {text:"about",key:"B"}, {text:"at",key:"C"}, {text:"in",key:"D"}], correct: "D",
+                exp: ["Anne vẫn kiên trì, khăng khăng trong cuộc tìm kiếm sự thật về những gì đã xảy ra.", "Giới từ đi kèm cố định sau động từ chỉ ý chí kiên định.", "Công thức chuẩn: 'persist in something / doing something' (kiên trì, bền bỉ làm gì).", "Chọn các giới từ như 'on' hay 'at' là lỗi sai nghiêm trọng về mặt quản trị giới từ."]
+            },
+            {
+                id: 76, text: "The case against the corruption scandal was ______ .",
+                choices: [{text:"discarded",key:"A"}, {text:"refused",key:"B"}, {text:"eliminated",key:"C"}, {text:"dismissed",key:"D"}], correct: "D",
+                exp: ["Vụ án chống lại vụ bê bối tham nhũng đã bị tòa án bác bỏ, đình chỉ điều tra.", "Thuật ngữ chuyên ngành luật pháp tư pháp tố tụng tố cáo.", "Động từ 'dismiss a case' mang nghĩa chuyên ngành là bác bỏ, đình chỉ một vụ án.", "Các động từ loại bỏ thông thường khác không mang sắc thái pháp lý phù hợp."]
+            },
+            {
+                id: 77, text: "I hadn’t realized she was English ______ she spoke.",
+                choices: [{text:"only after",key:"A"}, {text:"in case",key:"B"}, {text:"until",key:"C"}, {text:"when",key:"D"}], correct: "C",
+                exp: ["Tớ đã không hề nhận ra cô ấy là người Anh cho mãi tới khi cô ấy cất tiếng nói.", "Cấu trúc phủ định đi kèm mốc thời gian nhấn mạnh: 'not... until...' (mãi cho đến khi).", "Sự kết hợp giữa 'hadn't' vế trước và 'until' tạo thành mạch thời gian hoàn hảo.", "Các liên từ giả định hoặc trạng từ khác làm mất đi ý nghĩa tương hợp."]
+            },
+            {
+                id: 78, text: "The old houses were ______ down to make way for a block of flats.",
+                choices: [{text:"banged",key:"A"}, {text:"put",key:"B"}, {text:"hit",key:"C"}, {text:"knocked",key:"D"}], correct: "D",
+                exp: ["Những ngôi nhà cổ cũ kỹ đã bị phá dỡ hoàn toàn để nhường chỗ cho một tòa chung cư.", "Phrasal verb chỉ hành động giải phóng mặt bằng, phá sập công trình xây dựng.", "Cụm từ cố định: 'knock down' mang nghĩa phá sập, dỡ bỏ tòa nhà công trình.", "Các động từ va đập cơ học khác không đi với giới từ down tạo nghĩa này."]
+            },
+            {
+                id: 79, text: "______ that she burst into tears.",
+                choices: [{text:"So angry she was",key:"A"}, {text:"She was so anger",key:"B"}, {text:"Such her anger was",key:"C"}, {text:"Her anger was such",key:"D"}], correct: "D",
+                exp: ["Cơn giận của cô ấy lớn đến mức mà cô ấy đã bật khóc nức nở.", "Cấu trúc nhấn mạnh mức độ nguyên nhân kết quả dùng đại từ chỉ định.", "Công thức: 'S + be + such + that + Clause' (Cái gì đó quá lớn đến nỗi mà...).", "Phương án B sai vì sau so phải là tính từ 'angry' chứ không dùng danh từ 'anger'."]
+            },
+            {
+                id: 80, text: "Ensure there is at least a 3cm space ______ allow adequate ventilation.",
+                choices: [{text:"in view of",key:"A"}, {text:"so as to",key:"B"}, {text:"so that",key:"C"}, {text:"with a view to",key:"D"}], correct: "B",
+                exp: ["Hãy đảm bảo có không gian trống ít nhất 3cm để cho phép sự thông gió đầy đủ.", "Cụm từ nối chỉ mục đích đứng trước một động từ nguyên mẫu không to 'allow'.", "Cấu trúc chuẩn xác: 'so as to + V-bare' (để mà làm gì).", "'so that' bắt buộc phải cộng một mệnh đề; 'with a view to' bắt buộc phải đi với danh động từ V-ing."]
+            },
+            {
+                id: 81, text: "He was ______ speaker!",
+                choices: [{text:"so good a",key:"A"}, {text:"so a good",key:"B"}, {text:"how good a",key:"C"}, {text:"what a good",key:"D"}], correct: "A",
+                exp: ["Anh ấy quả là một diễn giả vô cùng tuyệt vời!", "Cấu trúc đảo mạo từ đặc biệt nhấn mạnh tính chất đi kèm với từ So.", "Công thức chuẩn mực: 'so + Adjective + a/an + Noun số ít'. Do đó dùng 'so good a speaker'.", "Nếu dùng câu cảm thán với 'What' thì cấu trúc phải là 'What a good speaker!' chứ không có hệ động từ chia thì đứng lơ lửng."]
+            },
+            {
+                id: 82, text: "It was announced that neither the passengers nor the driver ______ in the crash.",
+                choices: [{text:"are injured",key:"A"}, {text:"were injured",key:"B"}, {text:"was injured",key:"C"}, {text:"have been injured",key:"D"}], correct: "C",
+                exp: ["Người ta thông báo rằng cả hành khách lẫn người tài xế đều không bị thương trong vụ tai nạn khốc liệt.", "Quy tắc hòa hợp chủ vị với cặp liên từ phủ định song hành: 'neither N1 nor N2'. Động từ chính bắt buộc phải chia theo danh từ đứng gần nó nhất (N2).", "Danh từ N2 'the driver' là số ít, kết hợp sự việc đã xảy ra trong quá khứ nên chọn 'was injured'.", "Chọn 'were' là phạm lỗi chia theo danh từ đứng xa hoặc số nhiều."]
+            },
+            {
+                id: 83, text: "The building has a smoke detector ______ any fires can be detected immediately.",
+                choices: [{text:"if",key:"A"}, {text:"as if",key:"B"}, {text:"such as",key:"C"}, {text:"so that",key:"D"}], correct: "D",
+                exp: ["Tòa nhà này có lắp thiết bị phát hiện khói để bất kỳ vụ hỏa hoạn nào cũng có thể được phát hiện ngay lập tức.", "Liên từ chỉ mục đích hành động đứng trước một mệnh đề kết quả lý tưởng.", "Công thức: 'so that + Clause' mang ý nghĩa 'để mà / nhằm mục đích'.", "Các liên từ điều kiện hoặc so sánh như 'as if' (như thể là) làm câu mất logic."]
+            },
+            {
+                id: 84, text: "Prizes are awarded ______ the number of points scored.",
+                choices: [{text:"because of",key:"A"}, {text:"according to",key:"B"}, {text:"adding up",key:"C"}, {text:"resulting in",key:"D"}], correct: "B",
+                exp: ["Giải thưởng sẽ được trao tặng dựa theo, tùy thuộc vào số điểm ghi được.", "Cụm giới từ chỉ căn cứ, tiêu chuẩn áp dụng hành động.", "Cụm từ quy ước: 'according to + Noun' mang ý nghĩa dựa theo, chiếu theo tiêu chuẩn.", "Dùng 'because of' (bởi vì) không lột tả được tính chất phân loại tỉ lệ của giải thưởng."]
+            },
+            {
+                id: 85, text: "If she ______ sick, she would have gone out with me to the party.",
+                choices: [{text:"had hadn’t been",key:"A"}, {text:"weren’t",key:"B"}, {text:"has hasn’t been",key:"C"}, {text:"wasn’t",key:"D"}],
+                choices: [{text:"hadn’t been",key:"A"}, {text:"weren’t",key:"B"}, {text:"hasn’t been",key:"C"}, {text:"wasn’t",key:"D"}], correct: "A",
+                exp: ["Nếu lúc đó cô ấy không bị ốm, cô ấy đã cùng tớ đi ra ngoài tham gia bữa tiệc rồi.", "Mệnh đề giả định một sự việc hoàn toàn không có thật, trái ngược thực tế trong quá khứ.", "Dựa vào vế chính 'would have gone' (loại 3), vế If bắt buộc phải chia thì Quá khứ hoàn thành 'hadn't been'.", "Chia động từ theo loại 2 là sai vì tình huống thuộc dòng thời gian quá khứ."]
+            },
+            {
+                id: 86, text: "The two countries have reached an agreement through dialogues described as ______ .",
+                choices: [{text:"counterproductive",key:"A"}, {text:"productivity",key:"B"}, {text:"productive",key:"C"}, {text:"unproductive",key:"D"}], correct: "C",
+                exp: ["Hai quốc gia đã đạt được một thỏa thuận chung thông qua các cuộc đối thoại được mô tả là vô cùng hiệu quả.", "Vị trí đứng sau hệ từ rút gọn mệnh đề quan hệ 'described as' cần một tính từ bổ nghĩa cho 'dialogues'.", "Vì kết quả là đạt được thỏa thuận (reached an agreement) nên các cuộc đối thoại phải mang tính tích cực gặt hái: 'productive'.", "'counterproductive' mang nghĩa phản tác dụng, đi ngược lại kết quả mong đợi."]
+            },
+            {
+                id: 87, text: "My father hasn't had much ______ with my family since he moved to New York.",
+                choices: [{text:"business",key:"A"}, {text:"connection",key:"B"}, {text:"meeting",key:"C"}, {text:"contact",key:"D"}], correct: "D",
+                exp: ["Bố của tớ không có nhiều liên lạc với gia đình kể từ khi ông ấy chuyển sang New York.", "Cụm thành ngữ chỉ hành động liên lạc, trao đổi thông tin từ xa.", "Cụm từ phối hợp cố định: 'have contact with somebody' (giữ liên lạc, tương tác với ai).", "Danh từ 'business' mang nghĩa kinh doanh buôn bán không hợp bối cảnh gia đình."]
+            },
+            {
+                id: 88, text: "Nowadays children would prefer history ______ in more practical ways.",
+                choices: [{text:"be taught",key:"A"}, {text:"to teach",key:"B"}, {text:"to be taught",key:"C"}, {text:"teach",key:"D"}], correct: "C",
+                exp: ["Ngày nay trẻ em thích môn Lịch sử được giảng dạy theo những cách thực tế, sinh động hơn.", "Cấu trúc thể hiện sở thích mong muốn đi kèm thể bị động của hành động.", "Công thức: 'would prefer + Something + to be + V3/ed'. Môn lịch sử nhận hành động được dạy.", "Chọn thể chủ động 'to teach' biến học sinh hoặc môn học thành người đi dạy, sai bản chất."]
+            },
+            {
+                id: 89, text: "While southern California is densely populated, ______ live in the northern part of the state.",
+                choices: [{text:"a number people",key:"A"}, {text:"a few of people",key:"B"}, {text:"many people",key:"C"}, {text:"few people",key:"D"}], correct: "D",
+                exp: ["Trong khi phía nam California có dân cư đông đúc, hầu như rất ít người sinh sống ở phía bắc của bang.", "Mối quan hệ đối lập trực tiếp bộc lộ qua liên từ 'While' đứng đầu câu.", "Trái ngược với 'densely populated' (đông đúc) phải là 'few people' (rất ít người, mang sắc thái phủ định trống vắng).", "Dùng 'many people' triệt tiêu hoàn toàn sự đối lập của câu gốc."]
+            },
+            {
+                id: 90, text: "Anne: “Thanks for the nice gift!” John: “ ______ ”",
+                choices: [{text:"In fact, I myself don’t like it.",key:"A"}, {text:"But do you know how much it costs?",key:"B"}, {text:"You’re welcomed.",key:"C"}, {text:"I’m glad you like it.",key:"D"}], correct: "D",
+                exp: ["Anne: 'Cảm ơn cậu vì món quà tuyệt vời này nhé!' John: 'Tớ rất vui vì cậu thích nó.'", "Lựa chọn văn phong giao tiếp nhã nhặn, lịch sự khi đón nhận lời khen tặng quà.", "'I'm glad you like it' là câu trả lời kinh điển, thể hiện sự ấm áp hiếu khách.", "Các phương án A, B thô lỗ, khiếm nhã; câu C sai chính tả (phải là You're welcome)."]
+            },
+            {
+                id: 91, text: "Havy: “Thanks for your help, Judy.” Judy: “ ______ .”",
+                choices: [{text:"With all my heart",key:"A"}, {text:"Never remind me",key:"B"}, {text:"It’s my pleasure",key:"C"}, {text:"Wish you",key:"D"}], correct: "C",
+                exp: ["Havy: 'Cảm ơn sự giúp đỡ của cậu nhé, Judy.' Judy: 'Đó là niềm vinh hạnh của tớ mà.'", "Phản hồi đáp lại lời cảm ơn một cách lịch thiệp, thân thiện trong tiếng Anh.", "Cụm từ giao tiếp cửa miệng: 'It's my pleasure' (Niềm vinh hạnh của tôi khi được giúp bạn).", "Các lựa chọn dịch nghĩa thô cứng theo kiểu tiếng Việt từng từ là không chuẩn."]
+            },
+            {
+                id: 92, text: "It’s said that he has ______ friends of his age.",
+                choices: [{text:"few",key:"A"}, {text:"plenty",key:"B"}, {text:"a little",key:"C"}, {text:"little",key:"D"}], correct: "A",
+                exp: ["Người ta nói rằng anh ấy có rất ít bạn bè ở cùng độ tuổi của mình.", "Từ định lượng phù hợp cho danh từ đếm được số nhiều 'friends'.", "'few' dùng cho danh từ đếm được số nhiều, mang nghĩa tiêu cực (ít đến mức cô đơn).", "'little' và 'a little' tuyệt đối chỉ đi với danh từ không đếm được."]
+            },
+            {
+                id: 93, text: "The students ______ to be at school at 3 p.m.",
+                choices: [{text:"told",key:"A"}, {text:"have told",key:"B"}, {text:"were told",key:"C"}, {text:"tell",key:"D"}], correct: "C",
+                exp: ["Các học sinh được yêu cầu/được bảo phải có mặt ở trường vào lúc 3 giờ chiều.", "Câu chia ở thể bị động nhận mệnh lệnh, chỉ dẫn từ ban giám hiệu hoặc giáo viên.", "Công thức bị động quá khứ đơn số nhiều: 'were + V3/ed'. Do đó dùng 'were told'.", "Nếu dùng chủ động 'told' câu sẽ thiếu tân ngữ đứng sau bộc lộ rõ lỗi ngữ pháp."]
+            },
+            {
+                id: 94, text: "Medical researchers are continually looking for ways to control, ______ and cure diseases.",
+                choices: [{text:"prevented",key:"A"}, {text:"be prevented",key:"B"}, {text:"prevent",key:"C"}, {text:"preventing",key:"D"}], correct: "C",
+                exp: ["Các nhà nghiên cứu y học đang liên tục tìm cách kiểm soát, phòng ngừa và chữa trị bệnh tật.", "Cấu trúc song hành, đồng đẳng (Parallel Structure) của các động từ đứng sau cụm chỉ mục đích 'ways to'.", "Các động từ liệt kê 'control', 'cure' đều ở dạng nguyên mẫu không to, nên từ ở giữa bắt buộc phải là 'prevent'.", "Dạng thêm đuôi '-ed' hay '-ing' phá vỡ tính đồng đẳng ngữ pháp."]
+            },
+            {
+                id: 95, text: "\"Just think, ______ 2 years' time, we'll be 20 both.\"",
+                choices: [{text:"under",key:"A"}, {text:"in",key:"B"}, {text:"after",key:"C"}, {text:"over",key:"D"}], correct: "B",
+                exp: ["'Thử nghĩ mà xem, trong vòng 2 năm nữa thôi, cả hai đứa mình đều sẽ bước sang tuổi 20 rồi đấy.'", "Cấu trúc cụm từ giới từ chỉ một khoảng thời gian trong tương lai tính từ mốc hiện tại.", "Cấu trúc bất biến: 'in + khoảng thời gian + 's time' (trong vòng bao lâu nữa).", "Các giới từ vị trí hay thời gian khác không đi với cấu trúc sở hữu cách chỉ tương lai này."]
+            },
+            {
+                id: 96, text: "He bought all the books ______ are needed for the English course.",
+                choices: [{text:"that",key:"A"}, {text:"who",key:"B"}, {text:"what",key:"C"}, {text:"those",key:"D"}], correct: "A",
+                exp: ["Anh ấy đã mua tất cả những cuốn sách cái mà rất cần thiết cho khóa học tiếng Anh.", "Đại từ quan hệ làm chủ ngữ thay thế cho tiền ngữ chỉ vật số nhiều 'all the books'.", "'that' thay thế hoàn hảo cho danh từ chỉ vật đóng vai trò chủ từ của vế sau.", "Từ 'what' không bao giờ làm đại từ quan hệ đứng sau danh từ tiền ngữ xác định rõ ràng."]
+            },
+            {
+                id: 97, text: "The existence of many stars in the sky ______ us to suspect that there may be life on another planet.",
+                choices: [{text:"have led",key:"A"}, {text:"leads",key:"B"}, {text:"lead",key:"C"}, {text:"leading",key:"D"}], correct: "B",
+                exp: ["Sự tồn tại của nhiều ngôi sao trên bầu trời khiến chúng ta nghi ngờ rằng có thể có sự sống trên hành tinh khác.", "Quy tắc xác định chủ ngữ chính để chia động từ: Chủ ngữ thực sự đứng trước giới từ 'of' là danh từ trừu tượng số ít 'The existence'.", "Do chủ ngữ số ít nên động từ ở hiện tại đơn phải thêm 's' thành 'leads'.", "Rất nhiều học sinh chọn 'lead' số nhiều vì bị bẫy bởi danh từ số nhiều 'stars' đứng ngay trước."]
+            },
+            {
+                id: 98, text: "______ , we couldn’t go out because it rained.",
+                choices: [{text:"Unfortunately",key:"A"}, {text:"Fortunate",key:"B"}, {text:"Fortunately",key:"C"}, {text:"Unfortunate",key:"D"}], correct: "A",
+                exp: ["Thật không may, chúng tôi đã không thể đi ra ngoài chơi vì trời đổ mưa.", "Vị trí đứng đầu câu ngăn cách bởi dấu phẩy cần một trạng từ (Adverb) bổ nghĩa cho toàn bộ cục diện sự việc phía sau.", "Ý nghĩa trời mưa phá vỡ kế hoạch mang tính tiêu cực, nên dùng trạng từ phủ định 'Unfortunately'.", "Dùng tính từ đứng đầu câu đơn độc như vậy là sai cấu trúc từ loại."]
+            },
+            {
+                id: 99, text: "The shirt in the window was ______ expensive for me to buy.",
+                choices: [{text:"too",key:"A"}, {text:"such",key:"B"}, {text:"enough",key:"C"}, {text:"so",key:"D"}], correct: "A",
+                exp: ["Chiếc áo sơ mi trưng bày trong tủ kính quá đắt đỏ để tôi có thể mua được.", "Cấu trúc chỉ tính chất vượt quá khả năng giới hạn cá nhân.", "Công thức chuẩn mực: 'S + be + too + Adjective + for somebody + to-V'.", "Nếu chọn 'so' thì vế sau bắt buộc phải đi với liên từ 'that' tạo thành mệnh đề hoàn chỉnh."]
+            },
+            {
+                id: 100, text: "He couldn’t get back ______ his car. He had locked himself out.",
+                choices: [{text:"on",key:"A"}, {text:"into",key:"B"}, {text:"in",key:"C"}, {text:"to",key:"D"}], correct: "B",
+                exp: ["Anh ấy không thể nào quay trở vào trong xe ô tô của mình được. Anh ấy tự khóa cửa nhốt mình ở ngoài rồi.", "Cụm động từ chỉ xu hướng di chuyển quay trở lại không gian kín diện tích nhỏ.", "Cụm động từ: 'get back into somewhere' (quay trở lại vào bên trong nơi nào).", "Giới từ 'on' dùng cho phương tiện công cộng lớn như tàu hỏa, xe buýt."]
+            }
+        ];
+
+        let trackedStudentAnswers = {};
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+
+        function playDingSound() {
+            try {
+                const now = audioCtx.currentTime;
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(523.25, now);
+                osc.frequency.setValueAtTime(659.25, now + 0.08);
+                osc.frequency.setValueAtTime(783.99, now + 0.16);
+                osc.frequency.setValueAtTime(1046.50, now + 0.24);
+                gain.gain.setValueAtTime(0, now);
+                gain.gain.linearRampToValueAtTime(0.22, now + 0.05);
+                gain.gain.exponentialRampToValueAtTime(0.001, now + 0.5);
+                osc.connect(gain); gain.connect(audioCtx.destination);
+                osc.start(now); osc.stop(now + 0.5);
+            } catch(e) {}
+        }
+
+        function playBuzzSound() {
+            try {
+                const now = audioCtx.currentTime;
+                const frequencies = [392.00, 349.23, 261.63];
+                frequencies.forEach((freq, idx) => {
+                    const osc = audioCtx.createOscillator();
+                    const gain = audioCtx.createGain();
+                    osc.type = 'triangle';
+                    osc.frequency.setValueAtTime(freq, now + (idx * 0.12));
+                    gain.gain.setValueAtTime(0, now + (idx * 0.12));
+                    gain.gain.linearRampToValueAtTime(0.18, now + (idx * 0.12) + 0.02);
+                    gain.gain.exponentialRampToValueAtTime(0.001, now + (idx * 0.12) + 0.14);
+                    osc.connect(gain); gain.connect(audioCtx.destination);
+                    osc.start(now + (idx * 0.12)); osc.stop(now + (idx * 0.12) + 0.14);
+                });
+            } catch(e) {}
+        }
+
+        function runConfettiExplosion() {
+            const canvas = document.getElementById('canvas-confetti-layer');
+            const ctx = canvas.getContext('2d');
+            canvas.width = window.innerWidth; canvas.height = window.innerHeight;
+            let particles = [];
+            const paletteColors = ['#FFC107', '#FF5722', '#E91E63', '#9C27B0', '#00C9A7', '#00D26A', '#8854C0'];
+            for (let i = 0; i < 70; i++) {
+                particles.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height - canvas.height,
+                    radius: Math.random() * 4 + 4,
+                    density: Math.random() * canvas.height,
+                    color: paletteColors[Math.floor(Math.random() * paletteColors.length)],
+                    tilt: Math.random() * 10 - 5,
+                    tiltIncremental: Math.random() * 0.05 + 0.02,
+                    angle: 0
+                });
+            }
+            function animateConfettiFrame() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                let continueAnimation = false;
+                particles.forEach((p) => {
+                    p.angle += p.tiltIncremental;
+                    p.y += (Math.cos(p.density) + 3 + p.radius / 2) / 1.8;
+                    p.x += Math.sin(p.angle);
+                    if (p.y <= canvas.height) continueAnimation = true;
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                    ctx.fillStyle = p.color;
+                    ctx.fill();
+                });
+                if (continueAnimation) requestAnimationFrame(animateConfettiFrame);
+            }
+            animateConfettiFrame();
+        }
+
+        function buildAndRenderInterface() {
+            const quizTarget = document.getElementById('quiz-dynamic-render-target');
+            quizTarget.innerHTML = '';
+
+            questionsDatabase.forEach((q, idx) => {
+                const cardNode = document.createElement('div');
+                cardNode.className = 'quiz-card';
+                cardNode.id = `card-wrapper-id-${q.id}`;
+                
+                let choicesHtmlContent = '';
+                q.choices.forEach(choice => {
+                    choicesHtmlContent += `
+                        <button class="choice-btn" id="btn-choice-item-${q.id}-${choice.key}" onclick="evaluateUserChoice(${q.id}, '${choice.key}', '${q.correct}')">
+                            <span class="choice-prefix">${choice.key}</span>
+                            <span class="choice-body-text">${choice.text}</span>
+                        </button>
+                    `;
+                });
+
+                cardNode.innerHTML = `
+                    <div class="question-header">
+                        <div class="question-number">${idx + 51}</div>
+                        <div class="question-text">${q.text}</div>
+                    </div>
+                    <div class="choices-grid" id="choices-grid-box-id-${q.id}">
+                        ${choicesHtmlContent}
+                    </div>
+                    
+                    <div class="explanation-box" id="explanation-box-view-id-${q.id}">
+                        <div class="explanation-title">💡 GIẢI THÍCH CHI TIẾT TỪ CÔ LÊ HẰNG:</div>
+                        <div class="explanation-step">
+                            <div class="step-heading">🔹 Bước 1: Ý nghĩa ngữ cảnh câu gốc</div>
+                            <div>${q.exp[0]}</div>
+                        </div>
+                        <div class="explanation-step">
+                            <div class="step-heading">🔹 Bước 2: Bản chất bẫy ngữ pháp / từ vựng</div>
+                            <div>${q.exp[1]}</div>
+                        </div>
+                        <div class="explanation-step">
+                            <div class="step-heading">🔹 Bước 3: Tại sao đáp án này ĐÚNG?</div>
+                            <div style="font-weight: 700; color: #00A955;">${q.exp[2]}</div>
+                        </div>
+                        <div class="explanation-step">
+                            <div class="step-heading">🔹 Bước 4: Tại sao các phương án khác SAI?</div>
+                            <div>${q.exp[3]}</div>
+                        </div>
+                    </div>
+                `;
+                quizTarget.appendChild(cardNode);
+            });
+        }
+
+        function evaluateUserChoice(questionId, chosenKey, correctKey) {
+            if (trackedStudentAnswers[questionId] !== undefined) return;
+            trackedStudentAnswers[questionId] = chosenKey;
+            
+            const targetBtnNode = document.getElementById(`btn-choice-item-${questionId}-${chosenKey}`);
+            const correctBtnNode = document.getElementById(`btn-choice-item-${questionId}-${correctKey}`);
+            const parentCardNode = document.getElementById(`card-wrapper-id-${questionId}`);
+            
+            if (chosenKey === correctKey) {
+                targetBtnNode.classList.add('correct-state');
+                playDingSound();
+                runConfettiExplosion();
+            } else {
+                targetBtnNode.classList.add('wrong-state');
+                if (correctBtnNode) correctBtnNode.classList.add('correct-state');
+                parentCardNode.classList.add('shake-animation');
+                playBuzzSound();
+                setTimeout(() => parentCardNode.classList.remove('shake-animation'), 450);
+            }
+
+            const childrenButtons = document.getElementById(`choices-grid-box-id-${questionId}`).getElementsByClassName('choice-btn');
+            for (let btn of childrenButtons) { btn.disabled = true; }
+
+            document.getElementById(`explanation-box-view-id-${questionId}`).style.display = 'block';
+        }
+
+        function processExamGrading() {
+            let correctCount = 0;
+            const totalQuestionsCount = questionsDatabase.length;
+            
+            questionsDatabase.forEach(q => {
+                if (trackedStudentAnswers[q.id] === q.correct) {
+                    correctCount++;
+                }
+            });
+
+            const rawSuccessPercentage = (correctCount / totalQuestionsCount) * 100;
+            const scoreDisplaySlot = document.getElementById('score-counter-slot');
+            const commentDisplaySlot = document.getElementById('teacher-feedback-slot');
+
+            scoreDisplaySlot.innerText = `${correctCount} / ${totalQuestionsCount}`;
+
+            if (rawSuccessPercentage < 50) {
+                commentDisplaySlot.innerText = "Điểm số cần cải thiện thêm một chút con nhé. Đọc lại kỹ lưỡng phần phân tích bẫy ngữ pháp của cô Lê Hằng để tích lũy kinh nghiệm thực chiến đề Chuyên nha! 💕";
+            } else if (rawSuccessPercentage >= 50 && rawSuccessPercentage <= 85) {
+                commentDisplaySlot.innerText = "Kết quả rất đáng khen ngợi! Lưu lại các câu thành ngữ (Idiom) và từ ghép bị sai vào sổ tay để ôn luyện hàng tuần nha con! 🌟";
+            } else {
+                commentDisplaySlot.innerText = "Xuất sắc tuyệt đối! Con làm chủ hoàn toàn các cấu trúc từ loại nâng cao và bẫy chia động từ rồi, tự tin chinh phục điểm số cao nhất nhé! 🎉💎";
+            }
+
+            document.getElementById('result-summary-popup').classList.add('active');
+        }
+
+        function resetAndRestartQuiz() {
+            document.getElementById('result-summary-popup').classList.remove('active');
+            trackedStudentAnswers = {};
+            buildAndRenderInterface();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        window.onload = () => {
+            buildAndRenderInterface();
+        };
+    </script>
+</body>
+</html>
